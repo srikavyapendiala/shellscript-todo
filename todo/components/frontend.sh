@@ -2,4 +2,4 @@
 
 source components/common.sh
 
-UPDATE
+OS_PREREQ

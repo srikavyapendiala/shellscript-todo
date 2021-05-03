@@ -20,3 +20,5 @@ if  [ ! -f components/${COMPONENT}.sh ]; then
   export COMPONENT
   bash components/$"{COMPONENT}".sh
 
+
+
