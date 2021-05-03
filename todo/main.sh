@@ -18,7 +18,7 @@ if  [ ! -f components/${COMPONENT}.sh ]; then
     fi
 
   export COMPONENT
-  bash components/$"{COMPONENT}".sh
+  bash [components/$"{COMPONENT}".sh];
 
 
 
