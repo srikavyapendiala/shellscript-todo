@@ -18,3 +18,7 @@ STAT $?
 HEAD "Start Todo Service"
 systemctl daemon-reload && systemctl start todo && systemctl status todo
 STAT $?
+
+ HEAD "Start npm"
+ npm start
+ STAT $?
