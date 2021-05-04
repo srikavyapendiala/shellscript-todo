@@ -3,7 +3,7 @@ source components/common.sh
 REPEAT
 
 HEAD "Install redis server"
-apt install redis-server >>"${LOG}"
+sudo apt install redis-server >>"${LOG}"
 STAT $?
 
 HEAD "Change ip address in redis config file"
