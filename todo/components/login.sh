@@ -14,7 +14,7 @@ source ~/.profile || exit
 go version
 
 HEAD "Make directory"
-mkdir /go && cd /go && src && cd src || exit
+cd /go && cd src  || exit
 
 HEAD "Clone code from github"
 GIT_CLONE
