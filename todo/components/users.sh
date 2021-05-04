@@ -15,7 +15,7 @@ GIT_CLONE
 STAT $?
 
 HEAD "Install Maven "
-apt install maven
+apt install maven >>"${LOG}"
 STAT $?
 
 HEAD "clean package"
