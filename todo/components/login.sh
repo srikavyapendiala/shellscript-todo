@@ -29,7 +29,7 @@ cd /etc/systemd/system || exit
 vi login.service
 
 HEAD "Start login service"
-systemctl deamon-reload && systemctl start login && systemctl status login
+systemctl daemon-reload && systemctl start login && systemctl status login
 STAT $?
 
 HEAD "Build"
