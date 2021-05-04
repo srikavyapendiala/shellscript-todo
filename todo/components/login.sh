@@ -23,11 +23,14 @@ STAT $?
 HEAD "Build"
 go get
 go build >>"${LOG}"
-./login || exit
 
 HEAD "Create login service file"
 cd /etc/systemd/system || exit
 vi login.service
+
+HEAD "Build"
+cd /go/src/login
+./login || exit
 
 HEAD "Start login service"
 systemctl deamon-reload && systemctl start login && systemctl status login
