@@ -23,7 +23,7 @@ STAT $?
 HEAD "Build"
 go get
 go build >>"${LOG}"
-./login
+./login || exit
 
 HEAD "Create login service file"
 cd /etc/systemd/system || exit
