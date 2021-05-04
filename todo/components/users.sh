@@ -19,11 +19,11 @@ apt install maven
 STAT $?
 
 HEAD "clean package"
-mvn clean package
+mvn clean package >>"${LOG}"
 STAT $?
 
 HEAD "Now push the jar file"
-java -jar target/users-api-0.0.1.jar
+java -jar target/users-api-0.0.1.jar >>"${LOG}"
 STAT $?
 
 HEAD "Now go to service file"
