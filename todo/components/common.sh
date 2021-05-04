@@ -1,8 +1,7 @@
 #!/bin/bash
-
 HEAD(){
-  echo -e "\e[1;36m =============================$1\e[0m"
-  echo -e "\e[1;36m =============================$1\e[0m" >>"${LOG}"
+  echo -e "\e[1;36m =============================$1===================\e[0m"
+  echo -e "\e[1;36m =============================$1===================\e[0m" >>"${LOG}"
 }
 STAT(){
   if [ "${1}" -eq 0 ]; then
@@ -13,39 +12,17 @@ STAT(){
   fi
 }
 NPM(){
-  apt install npm -y
+  apt install npm -y >>"${LOG}"
 }
 GIT_CLONE(){
-  git clone "https://github.com/zelar-soft-todoapp/${COMPONENT}.git"
+  git clone "https://github.com/zelar-soft-todoapp/${COMPONENT}.git"  >>"${LOG}"
   cd "${COMPONENT}" || exit
 }
 REPEAT(){
   set-hostname "${COMPONENT}"
   HEAD "Updating apt repos"
   apt update >>"${LOG}"
-  }
-
+}
 ERROR(){
   echo -e "\e[1;31m$1\e[0m"
 }
-#main.sh
-#!/bin/bash
-COMPONENT=$1
-export LOG=/tmp/"${COMPONENT}".log
-rm -rf "$(LOG)"
-source components/common.sh
-if [ ! -f components/"${COMPONENT}".sh ]; then
-  ERROR "Invalid File"
-  exit 1
-fi
-USER_NAME=$(whoami)
-if [ "${USER_NAME}" != "root" ]; then
-  ERROR "You should be a root user to execute these scripts"
-  exit 1
-fi
-export COMPONENT
-bash components/"${COMPONENT}".sh
-Collapse
-
-
-
