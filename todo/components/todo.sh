@@ -8,7 +8,7 @@ GIT_CLONE
 STAT $?
 
 HEAD "Install npm"
-NPM_INSTALL
+npm install
 STAT $?
 
 HEAD "Create service file"
