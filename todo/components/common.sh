@@ -23,10 +23,8 @@ REPEAT(){
   set-hostname "${COMPONENT}"
   HEAD "Updating apt repos"
   apt update >>"${LOG}"
-}
-NPM_INSTALL(){
-  npm install
-}
+  }
+
 ERROR(){
   echo -e "\e[1;31m$1\e[0m"
 }
