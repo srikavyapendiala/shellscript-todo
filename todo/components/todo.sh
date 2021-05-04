@@ -16,5 +16,5 @@ vi /etc/systemd/system/todo.service
 STAT $?
 
 HEAD "Start Todo Service"
-systemctl daemon-reload && systemctl satrt todo && systemctl status todo
+systemctl daemon-reload && systemctl start todo && systemctl status todo
 STAT $?
