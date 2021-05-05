@@ -14,6 +14,10 @@ HEAD "Clone code from Github"
 GIT_CLONE
 STAT $?
 
+HEAD "Switch to User Directory"
+cd Users
+STAT $?
+
 HEAD "Install Maven "
 apt install maven >>"${LOG}"
 STAT $?

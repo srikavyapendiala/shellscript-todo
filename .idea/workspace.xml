@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="966be4f3-ed4c-419b-aa12-15a4a0f8399a" name="Default Changelist" comment="#1 create component files &amp; common.sh file" />
+    <list default="true" id="966be4f3-ed4c-419b-aa12-15a4a0f8399a" name="Default Changelist" comment="#1 create component files &amp; common.sh file">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/main.sh" beforeDir="false" afterPath="$PROJECT_DIR$/todo/main.sh" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -284,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620194934996</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="#1 create component files &amp; common.sh file">
+      <created>1620195330493</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1620195330493</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
