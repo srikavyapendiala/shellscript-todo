@@ -18,7 +18,7 @@ fi
 
 export COMPONENT
 bash components/"${COMPONENT}".sh
-Collapse
+
 
 
 
