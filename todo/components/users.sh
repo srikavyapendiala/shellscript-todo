@@ -15,7 +15,7 @@ GIT_CLONE
 STAT $?
 
 HEAD "Switch to User Directory"
-cd Users
+cd users
 STAT $?
 
 HEAD "Install Maven "
