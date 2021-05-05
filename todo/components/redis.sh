@@ -13,3 +13,4 @@ STAT $?
 HEAD "Restart redis server"
 systemctl restart redis && systemctl status redis
 STAT $?
+
