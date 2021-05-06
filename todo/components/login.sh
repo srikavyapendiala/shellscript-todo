@@ -13,7 +13,7 @@ go version
 STAT $?
 
 Head "Make directory"
-mkdir /go && cd /go && mkdir src && cd src
+cd  /go && cd /go && cd src
 DOWNLOAD_COMPONENT
 STAT $?
 
