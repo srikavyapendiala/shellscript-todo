@@ -1,37 +1,34 @@
 #!/bin/bash
 source components/common.sh
-HEAD "Set hostname & update repo"
-REPEAT
+OS_PREREQ
 
-HEAD "Install GO"
-wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local >>"${LOG}"
+Head "Install Go Lang"
+wget -c https://dl.google.com/go/go1.15.5.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+STAT $?
 
-HEAD "Set path variables"
+Head "Set path variables"
 export PATH=$PATH:/usr/local/go/bin
-
-# shellcheck disable=SC1090
-source ~/.profile || exit
+source ~/.profile
 go version
-
-HEAD "Make directory"
-cd /go && cd src  || exit
-
-HEAD "Clone code from github"
-GIT_CLONE
 STAT $?
 
-HEAD "Build"
-go get
-go build >>"${LOG}"
-
-HEAD "Create login service file"
-cd /etc/systemd/system || exit
-vi login.service
-
-HEAD "Start login service"
-systemctl daemon-reload && systemctl start login && systemctl status login
+Head "Make directory"
+mkdir /go && cd /go && mkdir src && cd src
+DOWNLOAD_COMPONENT
 STAT $?
 
-HEAD "Build"
-cd /go/src/login
-./login || exit
+Head "Export go path in directory"
+export GOPATH=/go
+go get github.com/dgrijalva/jwt-go
+go get github.com/labstack/echo
+go get github.com/labstack/echo/middleware
+go get github.com/labstack/gommon/log
+go get github.com/openzipkin/zipkin-go
+go get github.com/openzipkin/zipkin-go/middleware/http
+go get  github.com/openzipkin/zipkin-go/reporter/http
+Head "Build"
+go build &>>"${LOG}"
+STAT $?
+
+Head "Create login service file"
+vi /etc/systemd/system/login.service

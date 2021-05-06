@@ -1,48 +1,32 @@
 #!/bin/bash
 source components/common.sh
-HEAD "Set hostname & update repo"
-REPEAT
+Head "Set hostname and update repo"
+OS_PREREQ
+STAT $?
 
-HEAD "Downloading  Java 11 version to Java 8 "
-apt install openjdk-8-jdk >>"${LOG}"
+Head "install java 8 version"
+apt-get install openjdk-8-jdk -y &>>${LOG}
+STAT $?
 
-HEAD "Check Java Version"
+Head "check java version"
 java -version
 STAT $?
 
-HEAD "Clone code from Github"
-GIT_CLONE
+Head "Install maven"
+apt install maven -y &>>$LOG
 STAT $?
 
-HEAD "Switch to User Directory"
-cd users
+DOWNLOAD_COMPONENT
 STAT $?
 
-HEAD "Install Maven "
-apt install maven >>"${LOG}"
+Head "Create package"
+mvn clean package
 STAT $?
 
-HEAD "clean package"
-mvn clean package >>"${LOG}"
-STAT $?
+Head "Create Users Service"
+vi /etc/systemd/system/users.service
 
-HEAD "Now push the jar file"
-java -jar target/users-api-0.0.1.jar >>"${LOG}"
-STAT $?
-
-HEAD "Now go to service file"
-vi /etc/systemd/system/users.service || exit
-STAT $?
-
-HEAD "now reload"
-systemctl daemon-reload
-STAT $?
-
-HEAD "enable users"
-systemctl enable users
-STAT $?
-
-HEAD "start users"
-systemctl start users
+Head "Start users service"
+systemctl daemon-reload && systemctl start users && systemctl enable users
 STAT $?
 
