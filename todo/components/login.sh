@@ -22,8 +22,6 @@ STAT $?
 
 GIT_CLONE
 STAT $?
-Head "Export go path in directory"
-export GOPATH=~/go
 
 Head " Build the Source-code"
 export GOPATH=~/go &>>$LOG
