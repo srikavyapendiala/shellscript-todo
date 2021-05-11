@@ -21,7 +21,7 @@ STAT $?
 GIT_CLONE
 STAT $?
 Head "Export go path in directory"
-export GOPATH=/go
+export GOPATH=~/go
 
 Head " Build the Source-code"
 export GOPATH=~/go &>>$LOG
@@ -32,7 +32,7 @@ Stat $?
 
 
 Head "Create login service file"
-mv /root/shellscripting-todo/todo/go/src/login/systemd.service /etc/systemd/system/login.service
+mv /root/go/src/login/systemd.service /etc/systemd/system/login.service
 
 Head "Start login service"
 systemctl daemon-reload && systemctl start login && systemctl status login
