@@ -32,7 +32,7 @@ Stat $?
 
 
 Head "Create login service file"
-mv /root/shellscripting-todo/todo/login/systemd.service /etc/systemd/system/login.service
+mv /root/shellscripting-todo/todo/go/src/login/systemd.service /etc/systemd/system/login.service
 
 Head "Start login service"
 systemctl daemon-reload && systemctl start login && systemctl status login
