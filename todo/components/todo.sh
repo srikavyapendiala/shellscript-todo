@@ -1,5 +1,7 @@
 #!/bin/bash
+
 source components/common.sh
+
 HEAD "Set hostname and update repo"
 REPEAT
 STAT $?
@@ -17,8 +19,10 @@ npm install >>"${LOG}"
 STAT $?
 
 HEAD "Create service file"
-mv /root/shellscripting-todo/todo/todo/systemd.service /etc/systemd/system/todo.service
+mv /root/shell-scripting/todo/todo/systemd.service /etc/systemd/system/todo.service
 
+HEAD "Replace Ip with DNS Names"
+sed -i -e 's/Environment=REDIS_HOST=172.31.19.195/Environment=REDIS_HOST=redis.chandra1.online/g' /etc/systemd/system/todo.service
 HEAD "Start Todo Service"
 systemctl daemon-reload && systemctl start todo && systemctl status todo
 STAT $?
