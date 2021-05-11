@@ -19,12 +19,6 @@ HEAD "switch to html directory"
 cd /var/www/html || exit
 STAT $?
 
-#sudo find . -type d -name
-# shellcheck disable=SC2181
-#if [ $? -ne 0 ]; then
- #  mkdir
-  # STAT $?
-#fi
 HEAD "make todo directory and switch"
 mkdir vue && cd vue
 STAT $?
