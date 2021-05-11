@@ -15,7 +15,9 @@ STAT $?
 
 Head "Make directory"
 mkdir ~/go
-cd ~/go && cd src || exit
+cd ~/go &&
+mkdir src
+cd src
 STAT $?
 
 GIT_CLONE
