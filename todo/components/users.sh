@@ -1,32 +1,26 @@
 #!/bin/bash
 source components/common.sh
-Head "Set hostname and update repo"
-OS_PREREQ
-STAT $?
+HEAD "Set Hostname and Update repo"
+REPEAT
 
-Head "install java 8 version"
-apt-get install openjdk-8-jdk -y &>>${LOG}
-STAT $?
+HEAD "Install java-openjdk"
+apt-get install openjdk-8-jdk-headless -y &>>"$LOG"
+Stat $?
 
-Head "check java version"
-java -version
-STAT $?
+HEAD "Installing Maven"
+apt install maven -y &>>"$LOG"
+Stat $?
 
-Head "Install maven"
-apt install maven -y &>>$LOG
-STAT $?
-
-HEAD "Clone code from Github"
+HEAD "Cloning the repo"
 GIT_CLONE
-STAT $?
 
-Head "Create package"
-mvn clean package
-STAT $?
+HEAD "cleaning the maven package"
+mvn clean package &>>"$LOG"
 
-Head "Create Users Service"
-vi /etc/systemd/system/users.service
+HEAD "Now move the user services"
+mv /root/shell-scripting/todo/users/systemd.service /etc/systemd/system/users.service
 
-Head "Start users service"
-systemctl daemon-reload && systemctl start users && systemctl enable users
-STAT $?
+HEAD "Restart the services"
+systemctl daemon-reload
+systemctl start users.service
+systemctl status users.service
