@@ -9,7 +9,6 @@ HEAD(){
 }
 
 
-
 STAT(){
   if [ "${1}" -eq 0 ]; then
     echo -e "\e[1;32m SUCCESS\e[0m"
