@@ -41,13 +41,6 @@
       <option name="presentableId" value="Default" />
       <updated>1620022043203</updated>
     </task>
-    <task id="LOCAL-00006" summary="#1 create component files &amp; common.sh file">
-      <created>1620032851370</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1620032851370</updated>
-    </task>
     <task id="LOCAL-00007" summary="#1 create component files &amp; common.sh file">
       <created>1620033413118</created>
       <option name="number" value="00007" />
@@ -384,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620797132770</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="#1 create component files &amp; common.sh file">
+      <created>1620799045081</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1620799045081</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
