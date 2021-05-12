@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="966be4f3-ed4c-419b-aa12-15a4a0f8399a" name="Default Changelist" comment="#1 create component files &amp; common.sh file">
-      <change beforePath="$PROJECT_DIR$/todo/components/users.sh" beforeDir="false" afterPath="$PROJECT_DIR$/todo/components/users.sh" afterDir="false" />
-    </list>
+    <list default="true" id="966be4f3-ed4c-419b-aa12-15a4a0f8399a" name="Default Changelist" comment="#1 create component files &amp; common.sh file" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,13 +38,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1620022043203</updated>
-    </task>
-    <task id="LOCAL-00010" summary="#1 create component files &amp; common.sh file">
-      <created>1620112440245</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1620112440245</updated>
     </task>
     <task id="LOCAL-00011" summary="#1 create component files &amp; common.sh file">
       <created>1620116648267</created>
@@ -384,7 +375,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620799913661</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="#1 create component files &amp; common.sh file">
+      <created>1620800068305</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1620800068305</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
