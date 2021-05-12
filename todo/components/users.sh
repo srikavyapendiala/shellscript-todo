@@ -23,7 +23,7 @@ mvn clean package &>>"$LOG"
 Stat $?
 
 HEAD "Now move the user services"
-mv /root/shell-scripting-todo/todo/users/systemd.service /etc/systemd/system/users.service
+mv /root/shellscripting-todo/todo/todo/users/systemd.service /etc/systemd/system/users.service
 Stat $?
 
 

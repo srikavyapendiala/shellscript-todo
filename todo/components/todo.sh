@@ -19,7 +19,7 @@ npm install >>"${LOG}"
 STAT $?
 
 HEAD "Create service file"
-mv /root/shell-scripting-todo/todo/todo/systemd.service /etc/systemd/system/todo.service
+mv /root/shellscripting-todo/todo/todo/systemd.service /etc/systemd/system/todo.service
 
 HEAD "Start Todo Service"
 systemctl daemon-reload && systemctl start todo && systemctl status todo
