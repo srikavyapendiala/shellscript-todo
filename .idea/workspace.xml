@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="966be4f3-ed4c-419b-aa12-15a4a0f8399a" name="Default Changelist" comment="#1 create component files &amp; common.sh file">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/components/frontend.sh" beforeDir="false" afterPath="$PROJECT_DIR$/todo/components/frontend.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/components/login.sh" beforeDir="false" afterPath="$PROJECT_DIR$/todo/components/login.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/components/todo.sh" beforeDir="false" afterPath="$PROJECT_DIR$/todo/components/todo.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
