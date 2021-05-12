@@ -24,7 +24,6 @@ mv /root/shellscripting-todo/todo/todo/systemd.service /etc/systemd/system/todo.
 HEAD "Replace Ip with DNS Names"
 sed -i -e 's/Environment=REDIS_HOST=172.31.21.148/Environment=REDIS_HOST=redis.kavya.website/g' /etc/systemd/system/todo.service
 
-
 HEAD "Start Todo Service"
 systemctl daemon-reload && systemctl start todo && systemctl status todo
 STAT $?
