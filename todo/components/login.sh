@@ -38,7 +38,7 @@ HEAD "Create login service file"
 mv /root/go/src/login/systemd.service /etc/systemd/system/login.service
 
 HEAD "Replace Ip with DNS Names"
-sed -i -e 's/Environment=USERS_API_ADDRESS=http://172.31.27.160:8080/Environment=USERS_API_ADDRESS=users.kavya.website:8080/g' /etc/systemd/system/login.service
+sed -i -e 's/Environment=USERS_API_ADDRESS=http://172.31.17.148:8080/Environment=USERS_API_ADDRESS=users.kavya.website:8080/g' /etc/systemd/system/login.service
 
 HEAD "Start login service"
 HEAD "Start login service"
