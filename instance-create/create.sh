@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-LID=lt-01852a234fb7931f2
+LID=lt-001a91058aa36fb46
 LVER=1
 #COMPONENT=$1
 
@@ -31,8 +31,8 @@ Instance_Create() {
 
 if [ "$1" == "all" ]; then
   for instance in frontend login todo redis users ; do
-    Instance_Create $instance
+    Instance_Create $instance-dev
   done
 else
-  Instance_Create $1
+  Instance_Create $1-dev
 fi
