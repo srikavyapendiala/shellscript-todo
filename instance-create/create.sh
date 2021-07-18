@@ -1,38 +1,29 @@
 #!/bin/bash
 
+# Authorize TCP, SSH & ICMP for default Security Group
+#ec2-authorize default -P icmp -t -1:-1 -s 0.0.0.0/0
+#ec2-authorize default -P tcp -p 22 -s 0.0.0.0/0
 
-LID=lt-001a91058aa36fb46
-LVER=1
-#COMPONENT=$1
+# The Static IP Address for this instance:
+IP_ADDRESS=`cat ~/.ec2/ip_address`
 
-if [ -z "$1" ]; then
-  echo "Component Name INput is needed"
-  exit 1
-fi
+# Create new t1.micro instance using ami-74f0061d (Basic 64-bit Amazon Linux AMI 2010.11.1 Beta)
+# using the default security group and a 16GB EBS datastore as /dev/sda1.
+# EC2_INSTANCE_KEY is an environment variable containing the name of the instance key.
+# --block-device-mapping ...:false to leave the disk image around after terminating instance
+EC2_RUN_RESULT=`ec2-run-instances --instance-type t1.micro --group default --key $EC2_INSTANCE_KEY --block-device-mapping "/dev/sda1=:16:true" --instance-initiated-shutdown-behavior stop --user-data-file instance_installs.sh ami-74f0061d`
 
-Instance_Create() {
-  COMPONENT=$1
-  INSTANCE_EXISTS=$(aws ec2 describe-instances --filters Name=tag:Name,Values=${COMPONENT}  | jq .Reservations[])
-  STATE=$(aws ec2 describe-instances     --filters Name=tag:Name,Values=${COMPONENT}  | jq .Reservations[].Instances[].State.Name | xargs)
-  if [ -z "${INSTANCE_EXISTS}" -o "$STATE" == "terminated"  ]; then
-    aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}, {Key=Project,Value=TODO}]" | jq
-  else
-    echo "Instance ${COMPONENT} already exists"
-  fi
+INSTANCE_NAME=`echo ${EC2_RUN_RESULT} | sed 's/RESERVATION.*INSTANCE //' | sed 's/ .*//'`
 
+ec2-associate-address $IP_ADDRESS -i $INSTANCE_NAME
 
-  IPADDRESS=$(aws ec2 describe-instances     --filters Name=tag:Name,Values=${COMPONENT}   | jq .Reservations[].Instances[].PrivateIpAddress | grep -v null |xargs)
+echo
+echo Instance $INSTANCE_NAME has been created and assigned static IP Address $IP_ADDRESS
+echo
 
-  sed -e "s/COMPONENT/${COMPONENT}/" -e "s/IPADDRESS/${IPADDRESS}/" record.json >/tmp/record.json
-  aws route53 change-resource-record-sets --hosted-zone-id  Z04959182IXHEW24FS3OC --change-batch file:///tmp/record.json
-  sed -i -e "/${COMPONENT}/ d" ../inv
-  echo "${IPADDRESS} COMPONENT=$(echo ${COMPONENT} | awk -F - '{print $1}')" >>../inv
-}
+# Since the server signature changes each time, remove the server's entry from ~/.ssh/known_hosts
+# Maybe you don't need to do this if you're using a Reserved Instance?
+ssh-keygen -R $IP_ADDRESS
 
-if [ "$1" == "all" ]; then
-  for instance in frontend login todo redis users ; do
-    Instance_Create $instance-dev
-  done
-else
-  Instance_Create $1-dev
-fi
+# SSH into my BRAND NEW EC2 INSTANCE! WooHoo!!!
+ssh -i $EC2_HOME/$EC2_INSTANCE_KEY.pem ec2-user@$IP_ADDRESS
