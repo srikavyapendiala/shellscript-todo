@@ -4,21 +4,16 @@
   ## THis become can also be used at task level
   roles:
     - role: frontend
-      tags: frontend
       when: COMPONENT == "frontend"
 
     - role: login
-      tags: login
       when: COMPONENT == "login"
 
     - role: users
-      tags: users
       when: COMPONENT == "users"
 
     - role: todo
-      tags: todo
       when: COMPONENT == "todo"
 
     - role: redis
-      tags: redis
       when: COMPONENT == "redis"
