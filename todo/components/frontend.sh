@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DOMAIN="kavya.website"
+
 source components/common.sh
 
 HEAD "Set hostname & update repo"
@@ -39,10 +41,12 @@ HEAD "Change root path in nginx"
 sed -i -e 's+root /var/www/html+root /var/www/html/vue/frontend/dist+g' /etc/nginx/sites-available/default
 STAT $?
 
-HEAD "Providing Login & Todo DNS names"
-export AUTH_API_ADDRESS=http://login.kavya.website:8080
-export TODOS_API_ADDRESS=http://todo.kavya.website:8080
-
+Head "Update Nginx Configuration"
+mv todo.conf /etc/nginx/sites-enabled/todo.conf
+for comp in login todo ; do
+  sed -i -e "/$comp/ s/localhost/${comp}.${DOMAIN}/" /etc/nginx/sites-enabled/todo.conf
+done
+Stat $?
 
 HEAD "Restart Nginx"
 systemctl restart nginx
